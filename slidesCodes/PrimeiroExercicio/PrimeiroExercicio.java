@@ -1,6 +1,7 @@
 /**
- * Síntese Objetivo: calcular a média entre 3 alturas de pessoas Entrada: sem
- * entrada (só atribuições) Saída: média das alturas
+ * Síntese Objetivo: calcular a média entre 3 alturas de pessoas 
+ * Entrada: sem entrada (só atribuições) 
+ * Saída: média das alturas
  */
 
 import java.util.Scanner;
