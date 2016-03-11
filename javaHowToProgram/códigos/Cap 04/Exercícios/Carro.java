@@ -1,5 +1,4 @@
 import javax.swing.JOptionPane;
-import java.util.Scanner;
 
 public class Carro
 {
@@ -9,8 +8,8 @@ public class Carro
   //método para configurar o nome do Carro
   void setCarro( String name, int tanque)
   {
-    nomeCarro = name;//armazena o nome do carro
-    capacidadeTanque = tanque;//armazena o nome do carro
+    this.nomeCarro = name;//armazena o nome do carro
+    this.capacidadeTanque = tanque;//armazena o nome do carro
   }
 
   //método para recuperar o nome do carro
@@ -28,38 +27,41 @@ public class Carro
 
   public void inserirQuilometragens()
   {
-    Scanner input = new Scanner( System.in );
 
     int[] viajens = new int[100];
-    int sentinela = 0, contador = 0, quilometragemTotal = 0;
+    int contador = 0, quilometragemTotal = 0;
+    String dialogInput;
+    do{
+      dialogInput = JOptionPane.showInputDialog(null,
+          "Entre com a quilometragem feita ou clique em cancelar para sair:",
+          "quilometragem",
+          JOptionPane.QUESTION_MESSAGE);
 
-    System.out.println( "Entre com a quilometragem feita ou -1 para sair:" );
-    viajens[contador++] = input.nextInt();
-
-    while(sentinela != -1)
-    {
-      System.out.println( "Entre com a quilometragem feita ou -1 para sair:" );
-      sentinela = input.nextInt();
-      if(sentinela != -1){
-        viajens[contador++] = sentinela;
+      //Valida os dados inseridos
+      if( dialogInput != null )
+      {
+            System.out.println("dialogInput" + dialogInput);
+            viajens[contador++] = Integer.parseInt(dialogInput);
       }
-    }
 
+    }while( (dialogInput != null) );
+
+    //Soma a quilometragem de cada viajem à quilometragemTotal
     for(int i = 0; i<contador; i++)
     {
       quilometragemTotal += viajens[i];
     }
 
-    determinarEficiencia( getCapacidadeTanque()*contador, quilometragemTotal );
+    //Chama o método para determinar a Eficiência
+    this.determinarEficiencia( this.getCapacidadeTanque()*contador, quilometragemTotal );
   }
 
   public void determinarEficiencia(int litrosCombustivel, int quilometros)
   {
-    System.out.println("litros de combustivel = " + litrosCombustivel);
-    System.out.println("quilometros = " + quilometros);
 
     JOptionPane.showMessageDialog( null, "A eficiência do " +
-        getCarroName() + " é "+ (float)quilometros/litrosCombustivel + " e o tamanho do tanque é"
-         + getCapacidadeTanque() +"!", "Eficiência", JOptionPane.PLAIN_MESSAGE );
+        this.getCarroName() + " é "+ (float)quilometros/litrosCombustivel +
+        "Km/L e o tamanho do tanque é " + this.getCapacidadeTanque() +" litros!",
+        "Eficiência", JOptionPane.INFORMATION_MESSAGE );
   }
 }
