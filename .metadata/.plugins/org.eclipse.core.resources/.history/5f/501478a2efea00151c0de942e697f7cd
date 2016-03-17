@@ -1,0 +1,50 @@
+package aula2;
+
+import java.util.Scanner;
+
+public class PesoElefantes {
+
+	public static void main(String[] args) {
+		
+		int[] pesoElefantes = new int[3];
+		
+		for(int i= 0; i<3; i++) {
+			pesoElefantes[i] = atribuiPeso();
+		}
+		
+		sortArray(pesoElefantes[]);
+		
+	}
+	
+	public static int atribuiPeso(){
+		Scanner ler = new Scanner(System.in);
+		int peso;
+		do{
+			peso = ler.nextInt();
+		}while( peso < 5  );
+		return peso;
+	}
+	
+	public int[] sortArray (int[] inArray)
+	{
+	    //
+	    int[] novoArray = inArray;
+
+	    for(int x = 0; x < a.length; x++) //a.length = tamanho do array
+	    {
+	        int Valor = a[x];
+	        int Index = x;
+
+	        for(int y = 0; y < a.length; y++)
+	        {
+	            if(Valor < a[y])
+	            {
+	                novoArray[x] = Valor;
+	            }
+	        }
+	    }
+
+	    return novoArray;
+	}
+
+}

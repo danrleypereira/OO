@@ -1,0 +1,27 @@
+import java.util.scanner;
+
+import com.sun.java_cup.internal.runtime.Scanner;
+
+public class PercentualSobrePiso {
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner ler = new Scanner(System.in);
+		static final int PISO_SALARIAL = 1000;
+		int valorInserido;
+		float percentual;
+		
+		System.out.println("Qual é o valor percentual a ser calculado sobre o piso" +
+				"salarial?");
+		
+		valorInserido = ler.nextInt();
+		percentual = (valorInserido/100) * PISO_SALARIAL;
+		
+		System.out.printf("%f", percentual);
+		
+	}
+
+}

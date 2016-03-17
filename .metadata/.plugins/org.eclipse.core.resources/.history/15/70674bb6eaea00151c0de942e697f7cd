@@ -1,0 +1,13 @@
+package aula2;
+
+public class PesoElefantes {
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}
