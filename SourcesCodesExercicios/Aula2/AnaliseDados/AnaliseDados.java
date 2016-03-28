@@ -7,7 +7,7 @@ import java.util.Scanner;
  * número de mulheres.
  */
 
-public class AnaliseDados {
+public abstract class AnaliseDados {
 	public static void main(String[] args) {
 		// declarações
 		Scanner ler = new Scanner(System.in);
@@ -49,11 +49,11 @@ public class AnaliseDados {
 		System.out.println("Menor peso informado:\t" + pesosOrdem[0]);
 		System.out.println("Média dos pesos dos Homens:\t" + mediaElementosArray(pesosHomens, numeroMachos));
 		System.out.println("Número de Femeas:\t" + numeroFemeas);
-		
+
 		ler.close();
 
 	}
-	
+
 	private static double mediaElementosArray(double[] pesoHomens, int tamanhoArray){
 		double pesoAux = 0;
 		for(int i=0; i<tamanhoArray; i++){
@@ -62,7 +62,7 @@ public class AnaliseDados {
 		}
 		return (pesoAux/(double)tamanhoArray);
 	}
-	
+
 	public static ArrayList<Pessoa> povoarArray(ArrayList<Pessoa> conjuntoPessoas, int numeroPessoas, Scanner ler) {
 		for (int indexPessoa = 0; indexPessoa < numeroPessoas; indexPessoa++) {
 			conjuntoPessoas.get(indexPessoa).inserirSexo(ler);
