@@ -2,6 +2,9 @@
 #include <string>
 #include <vector>
 #include "Movie.hpp"
+#include <pthread.h>
+#include <cstdlib>
+
 
 using namespace std;
 //classe filme
@@ -51,6 +54,34 @@ Movie Add()
 
 void listAll(vector<Movie> movieList);
 
+void sortByName(vector<Movie> list, int inicio, int fim)
+{
+  int i, j, meio;
+  string pivo=NULL, aux=NULL;
+
+  i = inicio;
+  j = fim;
+
+  meio = (int) ((i + j) / 2);
+  pivo = list.at(meio).getTitle();
+
+  do{
+     while (list.at(i).getTitle() < pivo) i = i + 1;
+     while (list.at(j).getTitle() > pivo) j = j - 1;
+
+     if(i <= j){
+        aux = list.at(i).getTitle();
+        list.at(i).getTitle() = list.at(j).getTitle();
+        list.at(j).getTitle() = aux;
+        i = i + 1;
+        j = j - 1;
+     }
+  }while(j > i);
+
+  if(inicio < j) sortByName(list, inicio, j);
+  if(i < fim) sortByName(list, i, fim);
+}
+
 int main(void)
 {
   vector<Movie> movieList;
@@ -76,6 +107,15 @@ int main(void)
       default:
         break;
     };
+    // thread t1 = thread(sortByName(movieList, 0, (movieList.size() - 1)));
+    pthread_t thread;
+    string msg1("thread2");
+    int rc = pthread_create(&thread, NULL,
+                        sortByName(movieList, 0, (movieList.size() - 1)),  reinterpret_cast<void*>(&msg1));
+    if (rc){
+       cout << "Error:unable to create thread," << rc << endl;
+       exit(1);
+    }
   }while(choice != 0);
 
   return 0;
