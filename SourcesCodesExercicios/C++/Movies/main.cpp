@@ -2,7 +2,7 @@
 #include <string>
 #include <vector>
 #include "Movie.hpp"
-#include <pthread.h>
+#include <thread>
 #include <cstdlib>
 
 
@@ -11,6 +11,12 @@ using namespace std;
 class Movie
 {
   public:
+    Movie(string title = "default", int year = 2016, string directorName = "unknown", int numberOfStars = 1){
+      this->title = title;
+      this->year = year;
+      this->directorName = directorName;
+      this->numberOfStars = numberOfStars;
+    }
     string getTitle()
     {
       return this->title;
@@ -31,10 +37,10 @@ class Movie
     {
       return this->numberOfStars;
     }
-    Movie(string str)
-    {
-      this->title = str;
-    }
+    // Movie(string str)
+    // {
+    //   this->title = str;
+    // }
   private:
     string title;
     int year;
@@ -107,15 +113,7 @@ int main(void)
       default:
         break;
     };
-    // thread t1 = thread(sortByName(movieList, 0, (movieList.size() - 1)));
-    pthread_t thread;
-    string msg1("thread2");
-    int rc = pthread_create(&thread, NULL,
-                        sortByName(movieList, 0, (movieList.size() - 1)),  reinterpret_cast<void*>(&msg1));
-    if (rc){
-       cout << "Error:unable to create thread," << rc << endl;
-       exit(1);
-    }
+    thread t1 = thread(sortByName(movieList, 0, (movieList.size() - 1)));
   }while(choice != 0);
 
   return 0;
