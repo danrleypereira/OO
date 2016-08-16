@@ -39,13 +39,13 @@ class Rectangle: public Shape, public PaintCost
 	}
 
 	// Overload + operator to add two Rectangle objects.
-Rectangle operator+(const Rectangle& b)
-{
-	 Rectangle rectangle;
-	 rectangle.width = this->width + b.width;
-	 rectangle.height = this->height + b.height;
-	 return rectangle;
-}
+	Rectangle operator+(const Rectangle& b)
+	{
+		 Rectangle rectangle;
+		 rectangle.width = this->width + b.width;
+		 rectangle.height = this->height + b.height;
+		 return rectangle;
+	}
 };
 
 int main(void)
