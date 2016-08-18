@@ -5,7 +5,7 @@
 using namespace std;
 
 int main( void ){
-  int i;
+  int i ;
   cin >> i << endl;
   Aluno aluno(i);
 
