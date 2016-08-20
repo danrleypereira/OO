@@ -1,15 +1,14 @@
 #include <iostream>
-#include <string>
 #include "Aluno.cpp"
 
 using namespace std;
 
-int main( void ){
-  int i ;
-  cin >> i << endl;
-  Aluno aluno(i);
+int main() {
+  int i;
+  cin >> i;
+  *Aluno aluno = new Aluno(i);
 
-  std::cout << "aluno ira = \t" << aluno.getIra() << std::endl;
+  cout << "aluno ira = \t" << aluno.getIra() << endl;
 
   return 0;
 }
