@@ -6,7 +6,7 @@ using namespace std;
 int main() {
   int i;
   cin >> i;
-  *Aluno aluno = new Aluno(i);
+  Aluno aluno(i);
 
   cout << "aluno ira = \t" << aluno.getIra() << endl;
 

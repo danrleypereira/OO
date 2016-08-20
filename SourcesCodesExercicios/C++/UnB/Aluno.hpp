@@ -1,22 +1,23 @@
 #ifndef ALUNO_HPP
 #define ALUNO_HPP
-#include "./Pessoa.hpp"
+#include "Pessoa.hpp"
 #include <string>
 
 using namespace std;
 
 class Aluno: public Pessoa
 {
-protected:
-  string matricula;
-  string nome;
+private:
   int ira;
 
 public:
-  Aluno(string matricula, string nome, int ira);
+  // Aluno(string matricula, string nome, int ira);
   Aluno(int ira);
-  string getNome();
+  // string getNome();
   int getIra();
+  // void setNome(std::string nome);
+  // void setMatricula(std::string matricula);
+  // string getMatricula();
 };
 
 #endif
