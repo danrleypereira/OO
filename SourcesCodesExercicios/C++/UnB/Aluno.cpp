@@ -3,15 +3,21 @@
 
 using namespace std;
 
-Aluno::Aluno(string ira){
-  this->ira = ira;
+// Aluno::Aluno(string matricula, string nome, int ira){
+//   this->matricula = matricula ;
+//   this->nome = nome ;
+//   this->ira = ira ;
+// }
+
+Aluno::Aluno(int ira){
+  this->ira = ira ;
 }
 
 string Aluno::getNome(){
   return this->nome;
 }
 
-string Aluno::getIra(){
+int Aluno::getIra(){
   return this->ira;
 }
 
