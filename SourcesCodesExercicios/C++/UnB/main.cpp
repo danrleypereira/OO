@@ -4,9 +4,9 @@
 using namespace std;
 
 int main() {
-  int i;
+  string i;
   cin >> i;
-  Aluno aluno(i);
+  Aluno aluno("stroinmg");
 
   cout << "aluno ira = \t" << aluno.getIra() << endl;
 
