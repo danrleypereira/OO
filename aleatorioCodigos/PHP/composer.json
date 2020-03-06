@@ -1,0 +1,16 @@
+{
+    "require": {
+      "phpclasses/php-ini-class": ">=1.0"
+    },
+    "repositories":
+    [
+      {
+        "type": "composer",
+        "url": "https:\/\/www.phpclasses.org\/"
+      },
+      {
+        "packagist": false
+      }
+    ]
+  }
+  
