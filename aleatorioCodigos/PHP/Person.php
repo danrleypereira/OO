@@ -1,4 +1,5 @@
 <?php
+
     class Person {
         public $name;
         public $age;
@@ -22,4 +23,5 @@
             return 1/$x;
         }
     }
+
 ?>

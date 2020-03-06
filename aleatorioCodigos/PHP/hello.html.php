@@ -9,13 +9,18 @@
             // $ini = parse_ini_file("%d/config.ini");
             // $ini = new INI('config.ini');
 
+            //constants 
+            require './Person.php';
+
+            define("AGE", 13);
+
             function helloBaby() {
                 echo '<p>Hello baby</p>';
                 // print_r($ini['db_name']);
-                // echo '<p>'. $ini .'</p>';
+                echo '<p>'. AGE .'</p>';
             }
 
-            require './Person.php';
+            
             
             echo '<p>Hello World</p>'; 
             // phpinfo();
